@@ -1,4 +1,4 @@
-package me.anwar-abdus-samad.examples.akka-rest-api.mappings
+package me.anwar_abdus_samad.examples.akka_rest_api.mappings
 
 
 import me.anwar-abdus-samad.examples.akka-rest-api.model._

@@ -1,4 +1,4 @@
-package me.anwar-abdus-samad.examples.akka-rest-api.utils
+package me.anwar-abdus-samad.examples.akka_rest_api.utils
 
 
 import com.typesafe.config.ConfigFactory
