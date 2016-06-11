@@ -1,4 +1,4 @@
-name := "AkkaRestApi"
+name := "akka_rest_api"
 
 version := "1.0"
 

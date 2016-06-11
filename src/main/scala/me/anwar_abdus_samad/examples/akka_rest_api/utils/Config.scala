@@ -1,13 +1,13 @@
-package me.anwar-abdus-samad.examples.akka_rest_api.utils
-
+package me.anwar_abdus_samad.examples.akka_rest_api.utils
 
 import com.typesafe.config.ConfigFactory
 
 
 trait Config {
   private val conf = ConfigFactory.load()
-}
 
-trait DropBoxConfig extends Config {
-    private val host = Config.conf.getS
+  val host = conf.getString("server.host")
+  val port = conf.getString("server.port")
+
+
 }
