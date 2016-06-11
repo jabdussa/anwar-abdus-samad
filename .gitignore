@@ -46,12 +46,12 @@ project/target/*
 logs
 logs/*
 
-notes
-notes/*
+#notes
+#notes/*
 
 src_managed/
 
 target/
 
-worksheets
-worksheets/*
+#worksheets
+#worksheets/*
