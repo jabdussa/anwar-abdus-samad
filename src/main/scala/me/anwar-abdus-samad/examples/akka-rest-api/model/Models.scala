@@ -1,5 +1,5 @@
+package me.anwar-abdus-samad.examples.akka-rest-api.model
 
-package io.collectx.mobilevoter.model
 
 // POST https:\\mysite.com\my-powerful-burner-events -d '{ "type": "inboundMedia", "payload": "<picture url>", "fromNumber": "+12222222222", "toNumber": "+ 13333333333" }'
 case class MultiMediaEvent(kind: String, payload: String, fromNumber: String, toNumber: String)

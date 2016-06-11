@@ -1,7 +1,7 @@
-package io.collectx.mobilevoter.mappings
+package me.anwar-abdus-samad.examples.akka-rest-api.mappings
 
-import io.collectx.mobilevoter.model._
 
+import me.anwar-abdus-samad.examples.akka-rest-api.model._
 import spray.json.DefaultJsonProtocol
 
 trait JsonMappings extends DefaultJsonProtocol {
