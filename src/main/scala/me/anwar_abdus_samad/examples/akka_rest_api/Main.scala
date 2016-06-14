@@ -18,6 +18,6 @@ object Main
   protected val log: LoggingAdapter = Logging(system, getClass)
   protected implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-    Http().bindAndHandle(handler = logRequestResult("log")(routes), interface = httpInterface, port = serverPort)
+    Http().bindAndHandle(handler = logRequestResult("log")(routes), interface = serverHost, port = serverPort)
 
 }
