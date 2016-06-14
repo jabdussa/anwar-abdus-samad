@@ -14,14 +14,13 @@ import me.anwar_abdus_samad.examples.akka_rest_api.mapping.JsonMappings
 
 trait EchoApi extends JsonMappings {
 
-  /*
-  val usersApi =
+  val echoApi =
     (path("echo") & get ) {
        complete (s"echo'd")
     }
-  */
 
 
+  /*
   val echoApi = {
     logRequestResult("echo-api-service") {
       (path("echo") & get) {
@@ -31,4 +30,6 @@ trait EchoApi extends JsonMappings {
       }
     }
   }
+  */
+
 }

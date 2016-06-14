@@ -1,6 +1,6 @@
-name := "AkkaRestApi"
+name := "akka_rest_api_v0"
 
-version := "1.0"
+version := "0.0"
 
 scalaVersion := "2.11.7"
 
