@@ -3,9 +3,9 @@ akka {
 }
 
 database = {
-  url = "jdbc:postgresql://127.0.0.1/yourdbname"
-  user = "youruser"
-  password = "yourpassword"
-  driver = org.postgresql.Driver
+  url = "jdbc:mysql://127.0.0.1/akka_rest_api_v0"
+  user = "root"
+  password = ""
+  driver = com.mysql.jdbc.Driver
   keepAliveConnection = true
 }

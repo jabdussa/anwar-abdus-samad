@@ -1,8 +1,10 @@
-CREATE TABLE "posts" (
-  "id"      BIGSERIAL PRIMARY KEY,
-  "user_id" BIGINT NOT NULL,
-  "title" VARCHAR(254) NOT NULL,
-  "content" TEXT NOT NULL
-);
-
-ALTER TABLE "posts" ADD CONSTRAINT "user_fk" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON UPDATE NO ACTION ON DELETE CASCADE;
+CREATE TABLE `posts` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `id_user` INT(11) NOT NULL,
+    `title` VARCHAR(254) NOT NULL,
+    `content` TEXT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id_user`)
+        REFERENCES users (`id`)
+        ON DELETE CASCADE ON UPDATE NO ACTION
+)  ENGINE=MyISAM DEFAULT CHARSET=LATIN1;

@@ -1,9 +1,13 @@
-CREATE TABLE "comments" (
-  "id"      BIGSERIAL PRIMARY KEY,
-  "user_id" BIGINT NOT NULL,
-  "post_id" BIGINT NOT NULL,
-  "content" TEXT NOT NULL
-);
-
-ALTER TABLE "comments" ADD CONSTRAINT "comment_user_fk" FOREIGN KEY ("user_id") REFERENCES "users" ("id") ON UPDATE NO ACTION ON DELETE CASCADE ;
-ALTER TABLE "comments" ADD CONSTRAINT "comment_post_fk" FOREIGN KEY ("post_id") REFERENCES "posts" ("id") ON UPDATE NO ACTION ON DELETE CASCADE ;
+CREATE TABLE `comments` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `id_user` INT(11) NOT NULL,
+    `id_post` INT(11) NOT NULL,
+    `content` TEXT NOT NULL,
+    PRIMARY KEY (`id`),
+    FOREIGN KEY (`id_user`)
+        REFERENCES users (`id`)
+        ON DELETE CASCADE ON UPDATE NO ACTION,
+    FOREIGN KEY (`id_post`)
+        REFERENCES `posts` (`id`)
+        ON DELETE CASCADE ON UPDATE NO ACTION
+)  ENGINE=MYISAM DEFAULT CHARSET=LATIN1;
