@@ -6,10 +6,6 @@ scalaVersion := "2.11.8"
 
 test in assembly := {}
 
-resolvers += "Flyway" at "https://flywaydb.org/repo"
-
-addSbtPlugin("org.flywaydb" % "flyway-sbt" % "4.0.2")
-
 libraryDependencies ++= {
   Seq(
     "com.typesafe.akka"   %  "akka-actor_2.11"                      	% "2.4.7",
