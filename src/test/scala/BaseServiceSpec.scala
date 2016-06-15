@@ -8,7 +8,14 @@ import org.scalatest._
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-trait BaseServiceSpec extends WordSpec with Matchers with ScalatestRouteTest with Routes with MigrationConfig with BaseDao{
+trait BaseServiceSpec
+  extends WordSpec
+    with Matchers
+    with ScalatestRouteTest
+    with Routes
+    with MigrationConfig
+    with BaseDao {
+
   protected val log: LoggingAdapter = NoLogging
 
   import driver.api._
