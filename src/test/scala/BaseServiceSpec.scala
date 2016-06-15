@@ -1,3 +1,4 @@
+import akka.actor.ActorRefFactory
 import dao.BaseDao
 import models.User
 
@@ -19,6 +20,15 @@ trait BaseServiceSpec
   protected val log: LoggingAdapter = NoLogging
 
   import driver.api._
+
+  import akka.actor.ActorSystem
+  import akka.event.{Logging, LoggingAdapter}
+  import akka.http.scaladsl.Http
+  import akka.http.scaladsl.server.Directives._
+  import akka.stream.ActorMaterializer
+  import utils.{MigrationConfig, Config}
+
+  override implicit def actorRefFactory: ActorRefFactory = system
 
   val testUsers = Seq(
     User(Some(1), "userName1", "password1", 21, 1),

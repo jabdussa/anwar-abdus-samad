@@ -10,6 +10,7 @@ import akka.http.scaladsl.server.Directives._
 import spray.json._
 
 trait CommentsApi extends JsonMappings{
+
   val commentsApi =
     (path("users"/IntNumber/"posts"/IntNumber/"comments") & get ) {(userId, postId) =>
        complete (CommentsDao.findAll(userId, postId).map(_.toJson))

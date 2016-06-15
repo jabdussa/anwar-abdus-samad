@@ -5,7 +5,12 @@ import org.scalatest.concurrent.ScalaFutures
 import spray.json._
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
 
-class CommentsApiSpec extends BaseServiceSpec with ScalaFutures{
+
+
+class CommentsApiSpec extends BaseServiceSpec with ScalaFutures {
+
+  override implicit val executionContext = system.dispatcher
+
   "Comments api" should {
     "retrieve comments list" in {
       Get("/users/1/posts/1/comments") ~> commentsApi ~> check {
