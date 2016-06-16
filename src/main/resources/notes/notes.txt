@@ -3,3 +3,14 @@ Source for Flyway Examples
 --------------------------------
 https://flywaydb.org/getstarted/firststeps/sbt
 
+Remember that if the schema already exists flyway will complain. 
+
+You may need to recreate the schema with no tables.
+
+Once the schema has been recreated issue the sbt flywayMigrate command to recreate your tables.
+
+
+shell> mysql -u <user> -p <password> --execute="CREATE <schema>"
+
+shell> sbt flywayMigrate
+
