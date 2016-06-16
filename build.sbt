@@ -23,7 +23,7 @@ libraryDependencies ++= {
 //flywayUrl := "jdbc:h2:file:./target/foobar"
 
 // MySQL
-flywayUrl := "jdbc:mysql://localhost/akka_rest_api_v0"
+flywayUrl := "jdbc:mysql://localhost/flyway_v0"
 
 flywayUser := "root"
 flywayPassword := ""
