@@ -27,10 +27,14 @@ Rest API Queries
    # CREATE
    curl -X POST -H $HEADER $USER_URL/users -d $USER_DAT
 
-   # FIND ALL
+   # VIEW USERS
    curl $USER_URL/users
 
+  # VIEW POSTS 
+  curl http://127.0.0.1:9000/v0/users/1/posts
 
+  # VIEW COMMENT
+  curl http://127.0.0.1:9000/v0/users/1/posts/1/comments
 
 --------------------------------
 Rest API Responses

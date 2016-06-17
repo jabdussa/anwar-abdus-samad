@@ -11,13 +11,12 @@ import models.User
 import akka.http.scaladsl.server.Directives._
 import spray.json._
 
-trait UsersApi extends JsonMappings{
-
-//  protected val log: LoggingAdapter = Logging(system, getClass)
+trait UsersApi
+  extends JsonMappings{
 
   val usersApi =
 
-    logRequestResult("@ UserApi") {
+    if Conf logRequest("@ UserApi", akka.event.Logging.WarningLevel) {
 
     (path("users") & get ) {
        complete (UsersDao.findAll.map(_.toJson))
