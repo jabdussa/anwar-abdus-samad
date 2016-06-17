@@ -1,7 +1,45 @@
 --------------------------------
-Source for v0 akka_rest_api_v0 example
+Links, Sources, Inspiration
 --------------------------------
-https://github.com/BBartosz/akkaRestApi/tree/master/src/test/scala
+1. https://github.com/BBartosz/akkaRestApi
+
+2. http://www.lightbend.com/activator/template/akka-http-microservice
 
 
 
+--------------------------------
+Database & Migrations
+--------------------------------
+
+
+--------------------------------
+Rest API Queries
+--------------------------------
+1. Test
+
+   curl http://localhost
+
+2. User Create, Get, Delete
+
+   export HEADER="'Content-Type: application/json'"
+   export USER_URL='http://localhost:9000/v0'
+   export USER_DAT="'{"ip1": "8.8.8.8", "ip2": "8.8.4.4"}'"
+
+   # CREATE
+   curl -X POST -H $HEADER $USER_URL/users -d $USER_DAT
+
+   # FIND ALL
+   curl $USER_URL/users
+
+
+
+--------------------------------
+Rest API Responses
+--------------------------------
+{
+  "city": "Mountain View",
+  "query": "8.8.8.8",
+  "country": "United States",
+  "lon": -122.0881,
+  "lat": 37.3845
+}

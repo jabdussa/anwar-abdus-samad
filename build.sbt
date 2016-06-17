@@ -4,6 +4,10 @@ version := "0.0"
 
 scalaVersion := "2.11.8"
 
+sbtVersion := "0.13.6"
+
+sbtPlugin := true
+
 test in assembly := {}
 
 libraryDependencies ++= {
@@ -27,3 +31,9 @@ libraryDependencies ++= {
   )
 
 }
+// MySQL
+flywayUrl := "jdbc:mysql://localhost/flyway_v0"
+
+flywayUser := "root"
+
+flywayPassword := ""

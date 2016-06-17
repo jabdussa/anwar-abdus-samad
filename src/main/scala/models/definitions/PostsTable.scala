@@ -5,7 +5,7 @@ import slick.driver.PostgresDriver.api._
 
 class PostsTable(tag: Tag) extends Table[Post](tag, "posts"){
   def id = column[PostId]("id", O.PrimaryKey, O.AutoInc)
-  def userId = column[UserId]("user_id")
+  def userId = column[UserId]("id_user")
   def title = column[String]("title")
   def content = column[String]("content")
   def * = (id.?, userId, title, content) <> ((Post.apply _).tupled, Post.unapply)

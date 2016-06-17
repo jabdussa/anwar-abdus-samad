@@ -3,7 +3,7 @@ import api.{CommentsApi, PostsApi, ApiErrorHandler, UsersApi}
 
 trait Routes extends ApiErrorHandler with UsersApi with PostsApi with CommentsApi{
   val routes =
-    pathPrefix("v1") {
+    pathPrefix("v0") {
       usersApi ~
       postsApi ~
       commentsApi
