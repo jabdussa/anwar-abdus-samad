@@ -19,6 +19,8 @@ object Main
   protected val log: LoggingAdapter = Logging(system, getClass)
   protected implicit val materializer: ActorMaterializer = ActorMaterializer()
 
+  log.warning("@ Main")
+
   Http().bindAndHandle(
     handler = logRequestResult("log")(routes),
     interface = httpInterface,

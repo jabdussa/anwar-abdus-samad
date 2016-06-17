@@ -9,7 +9,8 @@ import models.Post
 import akka.http.scaladsl.server.Directives._
 import spray.json._
 
-trait PostsApi extends JsonMappings{
+trait PostsApi extends JsonMappings {
+
   val postsApi =
     (path("users"/IntNumber/"posts") & get){ userId =>
       complete (PostsDao.findUserPosts(userId).map(_.toJson))
@@ -26,4 +27,5 @@ trait PostsApi extends JsonMappings{
     (path("users"/IntNumber/"posts"/IntNumber) & delete) { (userId, postId) =>
       complete (PostsDao.delete(postId).map(_.toJson))
     }
+
 }

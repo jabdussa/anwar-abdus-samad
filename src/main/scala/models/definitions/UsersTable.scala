@@ -1,7 +1,7 @@
 package models.definitions
 
 import models.{UserId, User}
-import slick.driver.PostgresDriver.api._
+import slick.driver.MySQLDriver.api._
 
 class UsersTable(tag: Tag) extends Table[User](tag, "users"){
   def id = column[UserId]("id", O.PrimaryKey, O.AutoInc)

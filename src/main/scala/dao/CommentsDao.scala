@@ -2,7 +2,7 @@ package dao
 
 import dao.CommentsDao._
 import models._
-import slick.driver.PostgresDriver.api._
+import slick.driver.MySQLDriver.api._
 import scala.concurrent.Future
 
 object CommentsDao extends BaseDao{

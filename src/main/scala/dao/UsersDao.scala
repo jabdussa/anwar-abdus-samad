@@ -1,7 +1,7 @@
 package dao
 
 import models.{UserId, User}
-import slick.driver.PostgresDriver.api._
+import slick.driver.MySQLDriver.api._
 import scala.concurrent.Future
 
 object UsersDao extends BaseDao{

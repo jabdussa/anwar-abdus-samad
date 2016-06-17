@@ -9,7 +9,7 @@ import models.{CommentId, Comment}
 import akka.http.scaladsl.server.Directives._
 import spray.json._
 
-trait CommentsApi extends JsonMappings{
+trait CommentsApi extends JsonMappings {
 
   val commentsApi =
     (path("users"/IntNumber/"posts"/IntNumber/"comments") & get ) {(userId, postId) =>

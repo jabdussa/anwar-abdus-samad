@@ -1,7 +1,7 @@
 package models.definitions
 
 import models.{Comment, CommentId}
-import slick.driver.PostgresDriver.api._
+import slick.driver.MySQLDriver.api._
 
 class CommentsTable(tag: Tag) extends Table[Comment](tag, "comments"){
   def id = column[CommentId]("id", O.PrimaryKey, O.AutoInc)

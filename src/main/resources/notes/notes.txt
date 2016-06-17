@@ -16,7 +16,7 @@ Rest API Queries
 --------------------------------
 1. Test
 
-   curl http://localhost
+   curl http://127.0.0.1
 
 2. User Create, Get, Delete
 
@@ -47,22 +47,19 @@ Rest API Responses
 Compiling & Running
 --------------------------------
 
-export REPO_PDIR=ssh://github.com/jabdussa
-export REPO=anwar_abdus_samad
-export BRANCH=akka_rest_api_v0
 export PDIR=/var/tmp
-#export PDIR=/Users/anwarabdus-samad/Development/anwar_abdus_samad/target/scala-2.11
-export JAR_PATH=$PDIR/target/scala-2.11
-export JAR=akka_rest_api_v0-assembly-0.0.jar
+export REPO=ssh://github.com/jabdussa/anwar_abdus_samad.git
+export BRANCH=akka_rest_api_v0
+export JAR=$PDIR/anwar_abdus_samad/target/scala-2.11/sbt-0.13/akka_rest_api_v0-assembly-0.0.jar
 
 cd $PDIR
 
-git clone $REPO_PDIR/$REPO
+git clone $REPO_URL/$REPO
 
-cd $PDIR/$REPO
+cd $PDIR/anwar_abdus_samad
 
 git checkout $BRANCH
 
 sbt clean compile assembly
 
-java -jar $PDIR/$JAR_PATH/$JAR
+java -jar $JAR

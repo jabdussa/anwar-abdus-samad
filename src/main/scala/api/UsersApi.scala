@@ -1,5 +1,7 @@
 package api
 
+//import _root_.Main._
+//import akka.event.{Logging, LoggingAdapter}
 import dao.UsersDao
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -10,9 +12,12 @@ import akka.http.scaladsl.server.Directives._
 import spray.json._
 
 trait UsersApi extends JsonMappings{
+
+//  protected val log: LoggingAdapter = Logging(system, getClass)
+
   val usersApi =
 
-//  logRequestResult("@ UserApi") {  
+    logRequestResult("@ UserApi") {
 
     (path("users") & get ) {
        complete (UsersDao.findAll.map(_.toJson))
@@ -33,4 +38,4 @@ trait UsersApi extends JsonMappings{
     }
 }
 
-//}
+}
