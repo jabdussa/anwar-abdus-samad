@@ -6,7 +6,6 @@ Links, Sources, Inspiration
 2. http://www.lightbend.com/activator/template/akka-http-microservice
 
 
-
 --------------------------------
 Database & Migrations
 --------------------------------
@@ -43,3 +42,27 @@ Rest API Responses
   "lon": -122.0881,
   "lat": 37.3845
 }
+
+--------------------------------
+Compiling & Running
+--------------------------------
+
+export REPO_PDIR=ssh://github.com/jabdussa
+export REPO=anwar_abdus_samad
+export BRANCH=akka_rest_api_v0
+export PDIR=/var/tmp
+#export PDIR=/Users/anwarabdus-samad/Development/anwar_abdus_samad/target/scala-2.11
+export JAR_PATH=$PDIR/target/scala-2.11
+export JAR=akka_rest_api_v0-assembly-0.0.jar
+
+cd $PDIR
+
+git clone $REPO_PDIR/$REPO
+
+cd $PDIR/$REPO
+
+git checkout $BRANCH
+
+sbt clean compile assembly
+
+java -jar $PDIR/$JAR_PATH/$JAR

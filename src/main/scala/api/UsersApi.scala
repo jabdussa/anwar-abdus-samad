@@ -11,6 +11,9 @@ import spray.json._
 
 trait UsersApi extends JsonMappings{
   val usersApi =
+
+//  logRequestResult("@ UserApi") {  
+
     (path("users") & get ) {
        complete (UsersDao.findAll.map(_.toJson))
     }~
@@ -29,3 +32,5 @@ trait UsersApi extends JsonMappings{
       complete (UsersDao.delete(userId).map(_.toJson))
     }
 }
+
+//}
