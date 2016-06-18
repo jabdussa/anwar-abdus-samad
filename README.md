@@ -1,6 +1,11 @@
-# anwar_abdus_samad
-Sample Work
+## Anwar Abdus-Samad - Sample Work
 
-- Using Flyway DB Migrations with a Scala Project (v0)
+1. Flyway DB Migration (Scala)
+  - version: v0
+  - branch: flyway_v0
 
-- AKKA REST API (v0) ... crudish :)
+2. AKKA REST API  ... crudish :)
+  - version: v0
+  - branch: akka_rest_api_v0
+  
+  
