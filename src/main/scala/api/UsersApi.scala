@@ -12,11 +12,11 @@ import akka.http.scaladsl.server.Directives._
 import spray.json._
 
 trait UsersApi
-  extends JsonMappings{
+  extends JsonMappings {
 
   val usersApi =
 
-    if Conf logRequest("@ UserApi", akka.event.Logging.WarningLevel) {
+    // if Conf logRequest("@ UserApi", akka.event.Logging.WarningLevel) {
 
     (path("users") & get ) {
        complete (UsersDao.findAll.map(_.toJson))
@@ -35,6 +35,5 @@ trait UsersApi
     (path("users"/IntNumber) & delete) { userId =>
       complete (UsersDao.delete(userId).map(_.toJson))
     }
-}
 
 }

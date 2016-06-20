@@ -5,12 +5,15 @@ import akka.http.scaladsl.model.StatusCodes._
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
 
-trait ApiErrorHandler {
+trait LionsTIgersAndBearsException {
   implicit def myExceptionHandler: ExceptionHandler = ExceptionHandler {
+
     case e: NoSuchElementException =>
       extractUri { uri =>
-        complete(HttpResponse(NotFound, entity = s"Invalid id: ${e.getMessage}"))
+        complete(HttpResponse(UnavailableForLegalReasons, entity = s"Lions & Tigers & Bears... Oh My!! ${e.getMessage}"))
       }
+
   }
+
 
 }
