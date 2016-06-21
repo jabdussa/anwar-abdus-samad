@@ -1,6 +1,6 @@
 package api
 
-import dao.PermDao
+import dao.PermsDao
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport._
