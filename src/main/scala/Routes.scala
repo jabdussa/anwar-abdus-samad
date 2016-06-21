@@ -6,6 +6,8 @@ trait Routes extends ApiErrorHandler with UsersApi with PostsApi with CommentsAp
     pathPrefix("v0") {
       usersApi ~
       postsApi ~
-      commentsApi
-    } ~ path("")(getFromResource("public/index.html"))
+      commentsApi ~
+      permsApi
+    } 
+    ~ path("")(getFromResource("public/index.html"))
 }
