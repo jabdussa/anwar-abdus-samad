@@ -18,8 +18,8 @@ trait PermsApi extends JsonMappings {
     (path("users"/IntNumber/"posts"/IntNumber) & get) { (userId,postId) =>
       complete (PostsDao.findByUserIdAndId(userId, postId).map(_.toJson))
     }~
-    (path("users"/IntNumber/"posts") & post) { userId => entity(as[Post]) { post =>
-      complete (PostsDao.create(post).map(_.toJson))
+    (path("addEntity") & post) { entityId => entity(as[PermRequest]) { post =>
+      complete (PermsRequest.create(post).map(_.toJson))
     }}~
     (path("users"/IntNumber/"posts"/IntNumber) & put) { (userId, id) => entity(as[Post]) { post =>
       complete (PostsDao.update(post, id).map(_.toJson))
