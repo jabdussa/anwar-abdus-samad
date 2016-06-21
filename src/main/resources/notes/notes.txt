@@ -102,7 +102,7 @@ Good Comparison of differnet Scala JSON Modules
     j.prettyPrint
 
 
-w
+
 2. Jacks
 
    - https://github.com/wg/jacks
@@ -119,3 +119,5 @@ w
     import net.liftweb.json._
     import net.liftweb.json.DefaultFormats
 
+
+    val data = """{ "name": "jabdussa", "location": "earth" }"""

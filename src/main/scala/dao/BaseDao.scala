@@ -1,6 +1,6 @@
 package dao
 
-import models.definitions.{CommentsTable, PostsTable, UsersTable}
+import models.definitions.{CommentsTable, PostsTable, UsersTable, EntitiesTable}
 import slick.dbio.{Effect, NoStream}
 import slick.lifted.TableQuery
 import slick.profile.{FixedSqlAction, SqlAction, FixedSqlStreamingAction}
@@ -11,6 +11,7 @@ trait BaseDao extends DatabaseConfig {
   val usersTable = TableQuery[UsersTable]
   val postsTable = TableQuery[PostsTable]
   val commentsTable = TableQuery[CommentsTable]
+  val entitiesTable = TableQuery[EntitiesTable]
 
   protected implicit def executeFromDb[A](action: SqlAction[A, NoStream, _ <: slick.dbio.Effect]): Future[A] = {
     db.run(action)

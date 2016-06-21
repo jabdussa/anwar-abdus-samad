@@ -1,6 +1,6 @@
 package models.definitions
 
-import models.{Comment, CommentId}
+import models.{CommentId, Comment}
 import slick.driver.MySQLDriver.api._
 
 class CommentsTable(tag: Tag) extends Table[Comment](tag, "comments"){

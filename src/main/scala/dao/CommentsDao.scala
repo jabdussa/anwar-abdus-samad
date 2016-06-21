@@ -1,11 +1,13 @@
 package dao
 
-import dao.CommentsDao._
-import models._
 import slick.driver.MySQLDriver.api._
 import scala.concurrent.Future
 
-object CommentsDao extends BaseDao{
+import models._
+import dao.CommentsDao._
+
+
+object CommentsDao extends BaseDao {
   def findAll(userId: UserId, postId: PostId): Future[Seq[Comment]] = {
     (for {
       user <-usersTable.filter(_.id === userId)
