@@ -11,7 +11,7 @@ import spray.json._
 
 trait PermsApi extends JsonMappings {
 
-  val postsApi =
+  val permsApi =
     (path("users"/IntNumber/"posts") & get){ userId =>
       complete (PostsDao.findUserPosts(userId).map(_.toJson))
     }~
