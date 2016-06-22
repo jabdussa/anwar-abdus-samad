@@ -7,8 +7,6 @@ import akka.http.scaladsl.server.Directives._
 
 import dao.EntityDao
 import models.Entity
-import models.EntityId
-
 import mappings.JsonMappings
 
 
@@ -19,11 +17,11 @@ trait EntityApi extends JsonMappings {
     (path("entities") & get) {
       complete(EntityDao.findAll.map(_.toJson))
     } ~
-    path("entity" /  IntNumber ) { id  =>
-      complete(EntityDao.findById(id).map(_.toJson))
-    } ~
     path("entity" /  "all" ) {
       complete(EntityDao.findAll.map(_.toJson))
+    } ~
+    path("entity" /  IntNumber ) { id  =>
+      complete(EntityDao.findById(id).map(_.toJson))
     } ~
     ( path("addEntity") & post ) {
         entity(as[Entity]) {
@@ -32,13 +30,3 @@ trait EntityApi extends JsonMappings {
     }
 
 }
-
-
-/*
-
-(path("addEntity") & post) { entity(as[Entity]) { entity =>
-      complete(EntityDao.create(entity).map(_.toJson))
-    }
-
-
- */
