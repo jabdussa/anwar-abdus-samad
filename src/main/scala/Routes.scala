@@ -1,5 +1,5 @@
 import akka.http.scaladsl.server.Directives._
-import api.{CommentsApi, PostsApi, UsersApi, EntityApi, ApiErrorHandler}
+import api.{EntityApi, ApiErrorHandler}
 
 trait Routes extends ApiErrorHandler with EntityApi {
 
