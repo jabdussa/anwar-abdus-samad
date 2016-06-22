@@ -1,5 +1,5 @@
 CREATE TABLE `entities` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `data` blob,
-    PRIMARY KEY (`id`)
+    `entityID` INT(11) NOT NULL DEFAULT '0',
+    `data` blob NOT NULL,
+    PRIMARY KEY (`entityID`)
 )  ENGINE=MyISAM DEFAULT CHARSET=LATIN1;
