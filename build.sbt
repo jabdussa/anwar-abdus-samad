@@ -27,7 +27,7 @@ libraryDependencies ++= {
     "org.scalamock"       %% "scalamock-scalatest-support"          	  % "3.2.2",
     "com.typesafe.play"   %  "play-slick_2.11"                      	  % "2.0.2",
     "com.typesafe.play"   %  "play-slick-evolutions_2.11"           	  % "2.0.2",
-    "io.spray"            %%  "spray-json"                              % "1.3.2",
+    "io.spray"            %% "spray-json"                               % "1.3.2",
     "mysql"               %  "mysql-connector-java"                 	  % "5.1.39"
   )
 

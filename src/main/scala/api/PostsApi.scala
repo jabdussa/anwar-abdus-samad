@@ -15,7 +15,7 @@ trait PostsApi extends JsonMappings {
     (path("users"/IntNumber/"posts") & get){ userId =>
       complete (PostsDao.findUserPosts(userId).map(_.toJson))
     }~
-    (path("users"/IntNumber/"posts"/IntNumber) & get) { (userId,postId) =>
+    (path("users"/IntNumber/"posts"/IntNumber) & get) { (userId, postId) =>
       complete (PostsDao.findByUserIdAndId(userId, postId).map(_.toJson))
     }~
     (path("users"/IntNumber/"posts") & post) { userId => entity(as[Post]) { post =>

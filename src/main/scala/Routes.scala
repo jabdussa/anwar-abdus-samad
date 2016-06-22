@@ -11,22 +11,10 @@ trait Routes
 
   val routes =
 
-    /*
-    pathPrefix("v0") {
       usersApi ~
-      postsApi ~
-      commentsApi ~
-      entityApi
-
-    } ~ path("")(getFromResource("public/index.html"))
-    */
-
-    usersApi ~
       postsApi ~
       commentsApi ~
       entityApi ~
       path("")(getFromResource("public/index.html"))
-
-
 
 }
