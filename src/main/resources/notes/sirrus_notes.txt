@@ -56,3 +56,35 @@ d.perm.permutations.foreach(x => printf(x.mkString(", ")))
 	}
 
 }
+
+
+    // Thu Jun 23 2016 09:52 am - here
+
+	// WORKS !!!  - Had to do the copy myself
+	//
+	// Iterable.copyAsArray() does not quite work the way i need it to
+	// I must mantain shape and dynamic aspects
+
+	// this below will be come customCopy( )
+	// a.k.a. theresNoPlaceLikeInts( )
+	// a.k.a. strawBerryIntsForever( )
+
+	val callerSize = (1 to 5).toArray.size
+	val perms      = (1 to 5).toArray.permutations
+	val permsSize  = (1 to 5).toArray.permutations.size
+	val _r         = Array.fill[Int](callerSize)(0)
+	val _ret       = Array.ofDim[Int](permsSize, callerSize)
+
+	//println(s"idx=" + idx)
+	//println(s"===>" + _r.mkString(", "))
+	//println("")
+
+	for ((_r, idx) <- perms.zipWithIndex) {  _ret(idx) = _r(idx)
+	}
+
+	// _ret should now have 120 elements
+	// each element should be an Array[Int]
+
+	_ret
+
+// WORKS !!! - END
