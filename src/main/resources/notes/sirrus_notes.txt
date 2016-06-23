@@ -1,0 +1,58 @@
+// STOP - Thu Jun 23 2016 05:43 am
+// @ RW
+
+// last issue ...
+// Might have to iterate for real
+// d.perm.permutations is empty
+
+case class Sizes(caller: Int, perms: Int)
+
+case class Perms(permutations: Array[Array[Int]])
+
+case class SuperSized(size: Sizes, perm: Perms)
+
+//Perms( (1 to 5).toArray.map(x => x * 1)) )
+
+
+def sizeMeUp(r: Array[Int]):SuperSized = {
+	val itr = r.permutations
+	SuperSized( Sizes(r.size, itr.size), Perms( itr.toArray ) )
+}
+
+
+// test
+val rawD = (1 to 5).toArray
+
+val d = sizeMeUp(rawD)
+
+// should print 5
+d.size.caller
+
+// should print 120
+d.size.perms
+
+// should say Array[Array[Int]] = Array()
+d.perm.permutations
+
+// NOT working ==>
+// should say 12 0 i may need to iterate over for real
+d.perm.permutations.size
+
+
+// :( ARGH !!! continues to be 0
+d.perm.permutations.size
+
+val tmp = new Array[Int](d.size.caller)
+
+for (r <- d.perm.permutations) {
+	printf(r.mkString(", "))
+}
+
+d.perm.permutations.foreach(x => printf(x.mkString(", ")))
+
+
+	for (b <- data.permutations.zipWithIndex) {
+		_inner(index) = b(index)
+	}
+
+}
