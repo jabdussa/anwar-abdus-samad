@@ -61,6 +61,9 @@ target/
 *.ensime_cache
 *.ensime_cache/*
 
+0_NO_COMMIT/*
+0_no_commit/*
+
 no_commit/*
 NO_COMMIT/*
 *.NO_COMMIT.txt
