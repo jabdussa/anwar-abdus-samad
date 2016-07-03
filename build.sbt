@@ -12,7 +12,7 @@ test in assembly := {}
 
 libraryDependencies ++= {
   Seq(
-	 "org.apache.apex" 	  % "malhar-library" 								  % "3.4.0"
+	 "org.apache.camel" % "camel-ftp" % "2.17.1"
   )
 
 }

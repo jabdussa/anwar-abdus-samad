@@ -1,30 +1,18 @@
-import akka.actor.ActorSystem
-import akka.event.{Logging, LoggingAdapter}
-import akka.http.scaladsl.Http
-import akka.http.scaladsl.server.Directives._
-import akka.stream.ActorMaterializer
-import utils.{MigrationConfig, Config}
+protected RouteBuilder createRouteBuilder() throws Exception {
+    return new RouteBuilder() {
+        public void configure() throws Exception {
+            // we use a delay of 60 minutes (eg. once pr. hour we poll the FTP server
+            long delay = 3600000;
 
-import scala.concurrent.ExecutionContext
+            // from the given FTP server we poll (= download) all the files
+            // from the public/reports folder as BINARY types and store this as files
+            // in a local directory. Camel will use the filenames from the FTPServer
 
-object Main
-  extends App
-
-    with Config
-    with MigrationConfig
-    with Routes {
-
-  private implicit val system = ActorSystem()
-  protected implicit val executor: ExecutionContext = system.dispatcher
-  protected val log: LoggingAdapter = Logging(system, getClass)
-  protected implicit val materializer: ActorMaterializer = ActorMaterializer()
-
-  log.warning("@ Main")
-
-  Http().bindAndHandle(
-    handler = logRequestResult("log")(routes),
-    interface = httpInterface,
-    port = httpPort
-  )
-
+            // notice that the FTPConsumer properties must be prefixed with "consumer." in the URL
+            // the delay parameter is from the FileConsumer component so we should use consumer.delay as
+            // the URI parameter name. The FTP Component is an extension of the File Component.
+            from("ftp://tiger:scott@localhost/public/reports?binary=true&consumer.delay=" + delay).
+                    to("file://target/test-reports");
+        }
+    };
 }
