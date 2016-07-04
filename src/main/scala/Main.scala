@@ -1,13 +1,12 @@
+import org.apache.camel.scala.dsl.builder.ScalaRouteBuilder
 
-import org.apache.camel.builder.RouteBuilder
-
-import org.apache.camel.component.properties.PropertiesComponent
-
-import org.apache.camel.impl.DefaultPollingConsumerPollStrategy;
+//import org.apache.camel.component.properties.PropertiesComponent
+//
+//import org.apache.camel.impl.DefaultPollingConsumerPollStrategy;
 
 
 // we use a delay of 60 minutes (eg. once pr. hour we poll the FTP server
-long delay = 3600000;
+val delay = 3600000
 
 // from the given FTP server we poll (= download) all the files
 // from the public/reports folder as BINARY types and store this as files
@@ -18,10 +17,10 @@ long delay = 3600000;
 // the URI parameter name. The FTP Component is an extension of the File Component.
 
 case class Creds(val host:String, val port:String, val user:String, val pass:String)
-case class Src(val path:String, val file: String)   
+case class Src(val path:String, val file: String)
 case class Dst(val path:String, val file: String)
-      
-val creds = Creds("localhost", "22", "anwarabdus-samad", "") 
+
+val creds = Creds("localhost", "22", "anwarabdus-samad", "")
 
 val src = Src("/var/tmp/sftp_ingestion_test", "data.txt")
 
@@ -35,4 +34,3 @@ val sftpDelay   = "5s"
 val sftpMoveTo  = "done"
 
 from(s"ftp://$creds.user:$creds.pass@$creds.host$src.path/$src.file?binary=true&consumer&delay=$sftpDelay").to(s"file://$dst.path/$dst.file")
-    

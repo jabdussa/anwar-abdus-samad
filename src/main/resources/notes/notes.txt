@@ -13,9 +13,13 @@ Links, Sources, Inspiration
    https://github.com/apache/camel/tree/master/examples/camel-example-ftp/src/main/java/org/apache/camel/example/ftp
 
 
-3. Scala DSL Example
+3. Scala DSL Examples
 
+   http://camel.apache.org/scala-dsl.html
+   
    http://www.davsclaus.com/2011/12/apache-camel-little-scala-dsl-example.html
+   
+   http://camel.apache.org/scala-dsl-getting-started.html
 
  
 4. Localhost SFTP On OSX 
@@ -36,7 +40,15 @@ NEXT STEPS
 1. Do a simple ftp download from localhost via REPL 
 2. Trying to find the classes to load into the REPL
 
+3. Mon Jul 04 2016 04:03 pm
 
+   Try to generate a scala camel example using maven
+   
+   http://camel.apache.org/scala-dsl-getting-started.html
+   
+   mvn archetype:generate
+   
+   mvn camel-archetype-scala
 
 --------------------------------
 LOCALHOST SFTP ON OSX
@@ -53,12 +65,14 @@ REPL
 export DIR=/Users/anwarabdus-samad/.ivy2/cache/org.apache.camel
 
 scala -cp \
-$DIR/camel-core/jars/camel-core-2.17.2.jar:\
+$DIR/camel-scala/jars/camel-scala-2.17.2.jar:\
+$DIR/camel-core/jars/camel-core-2.17.2.jar\
 $DIR/camel-ftp/jars/camel-ftp-2.17.2.jar
 
 :cp
 
 
-import org.apache.camel.builder.RouteBuilder
+import org.apache.camel.scala.dsl.builder.ScalaRouteBuilder
+
 
  
