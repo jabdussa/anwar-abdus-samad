@@ -69,3 +69,6 @@ NO_COMMIT/*
 *.NO_COMMIT.txt
 *.no_commit.txt
 /bin/
+
+tmp/
+tmp/*
