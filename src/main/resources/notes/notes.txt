@@ -6,16 +6,22 @@ Links, Sources, Inspiration
    http://camel.apache.org/ftp2.html
 
 
-2. Github FTP Camel Example 
+2. Github FTP Camel Examples 
 
    https://github.com/apache/camel/tree/master/examples/camel-example-ftp
   
    https://github.com/apache/camel/tree/master/examples/camel-example-ftp/src/main/java/org/apache/camel/example/ftp
 
+
+3. Scala DSL Example
+
+   http://www.davsclaus.com/2011/12/apache-camel-little-scala-dsl-example.html
+
  
-4. SFTP On OSX 
+4. Localhost SFTP On OSX 
    
    http://osxdaily.com/2011/09/29/start-an-ftp-or-sftp-server-in-mac-os-x-lion/
+
 
 --------------------------------
 QUESTIONS 
