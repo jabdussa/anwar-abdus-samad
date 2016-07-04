@@ -8,7 +8,7 @@
 	<classpathentry kind="src" path="0_NO_COMMIT"/>
 	<classpathentry kind="src" path="src/main/scala"/>
 	<classpathentry kind="src" path="src/test/scala"/>
-	<classpathentry kind="lib" path="tmp/camel-ftp-2.17.1.jar"/>
+	<classpathentry kind="lib" path="src/main/resources/lib/camel-ftp-2.17.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
