@@ -11,8 +11,17 @@ protected RouteBuilder createRouteBuilder() throws Exception {
             // notice that the FTPConsumer properties must be prefixed with "consumer." in the URL
             // the delay parameter is from the FileConsumer component so we should use consumer.delay as
             // the URI parameter name. The FTP Component is an extension of the File Component.
-            from("ftp://tiger:scott@localhost/public/reports?binary=true&consumer.delay=" + delay).
-                    to("file://target/test-reports");
+
+            val user = "anwarabdus-samad"
+            val pass = ""
+            val host = "localhost"
+            val srcPath = "/var/tmp/sftp_ingestion_test"
+            val srcFile = "data.txt"
+            val dstPath = "/var/tmp/sftp_ingestion_test"
+            val dstFile = "ingestion.txt"
+
+            from(s"ftp://$user:$pass@$host$srcPath/$srcFile?binary=true&consumer.delay=" + delay).
+                    to(s"file://$dstPath/$dstFiler");
         }
     };
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="scala/|scala/util/|akka/http/scaladsl/server/|spray/" kind="src" path=".ensime_cache/dep-src/source-jars"/>
+	<classpathentry kind="src" path=".ensime_cache/dep-src/source-jars/akka/http/scaladsl/server"/>
+	<classpathentry excluding="util/" kind="src" path=".ensime_cache/dep-src/source-jars/scala"/>
+	<classpathentry kind="src" path=".ensime_cache/dep-src/source-jars/scala/util"/>
+	<classpathentry kind="src" path=".ensime_cache/dep-src/source-jars/spray"/>
+	<classpathentry kind="src" path="0_NO_COMMIT"/>
+	<classpathentry kind="src" path="src/main/scala"/>
+	<classpathentry kind="src" path="src/test/scala"/>
+	<classpathentry kind="lib" path="tmp/camel-ftp-2.17.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

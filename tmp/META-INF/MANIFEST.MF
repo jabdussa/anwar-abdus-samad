@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1462136721934
+Build-Jdk: 1.7.0_75
+Built-By: vagrant
+Bundle-Description: Camel FTP support
+Bundle-DocURL: http://www.apache.org/
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: camel-ftp
+Bundle-SymbolicName: org.apache.camel.camel-ftp
+Bundle-Vendor: The Apache Software Foundation
+Bundle-Version: 2.17.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.camel.component.file.remote;uses:="com.jcraft
+ .jsch,org.slf4j,org.apache.camel.util,org.apache.camel.component.file,o
+ rg.apache.camel,org.apache.commons.net.ftp,org.apache.camel.spi,org.apa
+ che.commons.net.ftp.parser,org.apache.camel.util.jsse,javax.net.ssl,org
+ .apache.camel.support,org.apache.camel.processor.idempotent,org.apache.
+ camel.impl";version="2.17.1",org.apache.camel.component.file.remote.str
+ ategy;uses:="org.apache.camel.util,org.apache.camel.component.file,org.
+ apache.camel,org.apache.commons.net.ftp,org.slf4j,org.apache.camel.comp
+ onent.file.strategy,com.jcraft.jsch";version="2.17.1"
+Export-Service: org.apache.camel.spi.ComponentResolver;component=ftp,org
+ .apache.camel.spi.ComponentResolver;component=ftps,org.apache.camel.spi
+ .ComponentResolver;component=sftp
+Implementation-Title: Apache Camel
+Implementation-Version: 2.17.1
+Import-Package: com.jcraft.jsch;version="[0.1.40,0.2)",javax.net.ssl,org
+ .apache.camel;version="[2.17,2.18)",org.apache.camel.component.file;ver
+ sion="[2.17,2.18)",org.apache.camel.component.file.strategy;version="[2
+ .17.1,2.17.2)",org.apache.camel.impl;version="[2.17,2.18)",org.apache.c
+ amel.processor.idempotent;version="[2.17,2.18)",org.apache.camel.spi;ve
+ rsion="[2.17,2.18)",org.apache.camel.support;version="[2.17,2.18)",org.
+ apache.camel.util;version="[2.17,2.18)",org.apache.camel.util.jsse;vers
+ ion="[2.17,2.18)",org.apache.commons.net.ftp;version="[3.3,4)",org.apac
+ he.commons.net.ftp.parser;version="[3.3,4)",org.osgi.framework;version=
+ "[1.5,2)",org.osgi.framework.wiring;version="[1.0,2)",org.slf4j;version
+ ="[1.6,2)"
+Karaf-Info: Camel;camel-ftp=2.17.1
+Tool: Bnd-1.50.0
