@@ -1,10 +1,21 @@
 --------------------------------
 Links, Sources, Inspiration
 --------------------------------
-1. http://camel.apache.org/ftp2.html
+1. Apache FTP Example
+   
+   http://camel.apache.org/ftp2.html
 
-2. 
 
+2. Github FTP Camel Example 
+
+   https://github.com/apache/camel/tree/master/examples/camel-example-ftp
+  
+   https://github.com/apache/camel/tree/master/examples/camel-example-ftp/src/main/java/org/apache/camel/example/ftp
+
+ 
+4. SFTP On OSX 
+   
+   http://osxdaily.com/2011/09/29/start-an-ftp-or-sftp-server-in-mac-os-x-lion/
 
 --------------------------------
 QUESTIONS 
@@ -31,4 +42,7 @@ scala -cp \
 $DIR/camel-core/jars/camel-core-2.17.2.jar:\
 $DIR/camel-ftp/jars/camel-ftp-2.17.2.jar
 
+:cp
 
+
+import org.apache.camel.builder.RouteBuilder 
