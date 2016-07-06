@@ -12,9 +12,10 @@ test in assembly := {}
 
 libraryDependencies ++= {
   Seq(
-    "org.apache.camel" % "camel-scala" % "2.17.2",
-    "org.apache.camel" % "camel-core" % "2.17.2",
-    "org.apache.camel" % "camel-ftp" % "2.17.2"
+    "org.apache.camel" 	% "camel-scala" % "2.17.2",
+    "org.apache.camel" 	% "camel-core" 	% "2.17.2",
+    "org.apache.camel" 	% "camel-ftp" 	% "2.17.2",
+    "com.typesafe" 		% "config" 		% "1.3.0"
   )
 
 }

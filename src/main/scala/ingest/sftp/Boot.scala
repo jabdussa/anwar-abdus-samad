@@ -1,12 +1,15 @@
 import scala.trace.Debug
 import org.apache.camel.main.Main
 import org.apache.camel.scala.dsl.builder.RouteBuilderSupport
+import com.typesafe.config.ConfigFactory
 
 /**
  * Main/Boot class for SFTP Camel Route
  */
 
 object Boot
+
+  val conf = ConfigFactory.load()
 
   extends RouteBuilderSupport {
 

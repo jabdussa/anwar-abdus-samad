@@ -15,16 +15,19 @@ class Sftp(override val context : CamelContext)
      exchange.getIn.setBody("block test")
    }
 
-  val user = "anwarabdus-samad"
-  val pass = ""
-  val host = "127.0.0.1"
-  val port = "22"
+//  val user = "anwarabdus-samad"
+//  val pass = ""
+//  val host = "127.0.0.1"
+//  val port = "22"
+//
+//  val srcDir = "/var/tmp/sftp_test"
+//  val srcFile = "access.log"
 
-  val srcDir = "/var/tmp/sftp_test"
-  val srcFile = "access.log"
+//  val dst = "/var/tmp/sftp_test/access.log.mmddyyhhmmss"
 
-  val dst = "/var/tmp/sftp_test/access.log.mmddyyhhmmss"
-
+   
+   
+   
   from(s"sftp://$host:$port$srcDir?fileName=$srcFile&username=$user&password=$pass&preferredAuthentications=password&move=done")
    .to(s"file://$dst")
 
