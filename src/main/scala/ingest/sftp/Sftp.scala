@@ -1,4 +1,3 @@
-
 import scala.trace.Debug
 import org.apache.camel.{CamelContext, Exchange}
 import org.apache.camel.scala.dsl.builder.ScalaRouteBuilder
@@ -6,9 +5,9 @@ import org.apache.camel.scala.dsl.builder.ScalaRouteBuilder
 /**
  * A Camel Router using the Scala DSL and sFTP
  */
-class Sftp(override val context : CamelContext)
 
-  extends ScalaRouteBuilder(context) {
+class Sftp(override val context : CamelContext) 
+	extends ScalaRouteBuilder(context) {
 
     // an example of a Processor method
    val myProcessorMethod = (exchange: Exchange) => {
@@ -26,9 +25,6 @@ class Sftp(override val context : CamelContext)
 //  val dst = "/var/tmp/sftp_test/access.log.mmddyyhhmmss"
 
    
-   
-   
-  from(s"sftp://$host:$port$srcDir?fileName=$srcFile&username=$user&password=$pass&preferredAuthentications=password&move=done")
-   .to(s"file://$dst")
+//  from(s"sftp://$host:$port$srcDir?fileName=$srcFile&username=$user&password=$pass&preferredAuthentications=password&move=done").to(s"file://$dst")
 
 }

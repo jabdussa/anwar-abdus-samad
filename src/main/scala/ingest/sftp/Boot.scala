@@ -7,11 +7,10 @@ import com.typesafe.config.ConfigFactory
  * Main/Boot class for SFTP Camel Route
  */
 
-object Boot
+object Boot 
+  extends RouteBuilderSupport {
 
   val conf = ConfigFactory.load()
-
-  extends RouteBuilderSupport {
 
   def main(args: Array[String]) {
     val main = new Main()
