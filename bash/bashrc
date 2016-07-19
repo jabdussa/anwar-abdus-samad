@@ -13,6 +13,9 @@ fi
 #TMP=~/bashrc/vimrc
 #[ -f $TMP ] && . $TMP
 
+TMP=/home/jabdussa/anwar_abdus_samad/bash/pathrc
+[ -f $TMP ] && . $TMP
+
 TMP=~/bashrc/pathrc
 [ -f $TMP ] && . $TMP
 
