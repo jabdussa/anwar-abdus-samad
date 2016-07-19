@@ -1,0 +1,444 @@
+# Source global definitions
+
+if [ -f /etc/bashrc ]; then
+       . /etc/bashrc
+fi
+
+#TMP=~/bashrc/bashrc
+#[ -f $TMP ] && . $TMP
+
+##TMP=~/bashrc/exrc
+#[ -f $TMP ] && . $TMP
+
+#TMP=~/bashrc/vimrc
+#[ -f $TMP ] && . $TMP
+
+TMP=~/bashrc/pathrc
+[ -f $TMP ] && . $TMP
+
+#TMP=/opt/aws/conf/creds.txt
+#[ -f $TMP ] && . $TMP
+
+#TMP=/opt/capricorntechs/aws_tool/cli-sh/aws.bashrc
+#[ -f $TMP ] && . $TMP
+
+alias gcloud_bash="source /opt/capricorntechs/mailer/gcloud/gcloud.bashrc"
+
+set -o vi
+
+now()
+{
+	echo "`date +%Y%b%d_%H-%M_%p`"
+}
+
+
+if [ "$UID" = 0 ]
+ then
+   PS1="\n(\#){\h}(\u)-{\w}\n#)> "
+else
+	PS1="\n(\#){\h}(\u)-{\w}\n:)> "
+fi
+
+
+# User specific aliases and functions
+
+alias grepi="grep -i"
+alias l1="ls -1F"
+alias l="ls -F"
+alias ll="ls -lFh"
+alias lld="ls -lFd"
+alias ..="cd .."
+alias cb="cd -"
+alias c="clear"
+alias rm="rm -f"
+alias 2apps="pushd ~/Dropbox/apps"
+alias connectx="ssh root@connectx.org"
+alias code="pushd /opt/code"
+
+alias craig="pushd /opt/capricorntechs/craigslist"
+alias 2craig="pushd /opt/capricorntechs/craigslist"
+
+alias mailer="pushd /opt/capricorntechs/mailer"
+alias 2mailer="pushd /opt/capricorntechs/mailer"
+
+alias ctech="pushd /opt/capricorntechs"
+alias 2ctech="pushd /opt/capricorntechs"
+
+alias ctechs="ssh jabdussa@72.47.236.180"
+
+alias 2bash="pushd ~/bashrc"
+
+alias java6="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin/java"
+alias java7="/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/bin/java"
+alias java7.72="/Library/Java/JavaVirtualMachines/jdk1.7.0_72.jdk/Contents/Home/bin/java"
+alias java8="/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk/Contents/Home/bin/java"
+
+alias collectx="ssh root@collectx.org"
+alias aclone-x="git clone git@git.assembla.com:j9-connectors.xlr8rs.git xlr8rs-$now"
+
+
+# ---------------
+# GIT ALIAS
+# ---------------
+
+alias gl="git config -l"
+
+alias gitl="gl"
+
+
+gita()
+{
+	git add $1
+}
+
+gitadd()
+{
+	git add --all
+}
+
+
+gitb()
+{
+	if [ -z "$1" ] ; then	
+		git branch
+	else
+		git branch $1
+	fi
+}
+
+gitc()
+{
+	ALL="$@"
+
+	if [ -z "$ALL" ] ; then
+		git add --all
+		git commit -m " updates"
+	else
+		git add --all
+		git commit -m "$ALL"
+	fi
+}
+
+gitcom()
+{
+	ALL="$@"
+
+	if [ -z "$ALL" ] ; then
+		git add --all
+		git commit -m " updates"
+		git push
+	else
+		git add --all
+		git commit -m "$ALL"
+		git push
+	fi
+}
+
+
+gitco()
+{
+	git checkout $1
+}
+
+
+alias gitba="git branch --all"
+
+alias gits="git status"
+
+alias gitm="git status | egrep (modified:) "
+
+alias gitp="git push"
+
+
+alias git-who="git config --get remote.origin.url"
+alias gitw="git config --get remote.origin.url"
+alias gitm="git status | egrep 'modified' "
+alias gitma="git status | egrep 'modified:' | awk -F : '{print $2}' | sed '/^$/d' | xargs git add"
+
+
+
+
+h()
+{
+	if [ ${1} ] ;  then
+		history | grep "$1"
+	else
+		history
+	fi
+}
+
+
+vibash()
+{
+	vim ~/.bashrc
+}
+
+.bash()
+{
+	source ~/.bashrc
+}
+
+vivi()
+{
+	vi ~/.vimrc
+}
+
+
+mps()
+{
+	ps -ef | grep "${1}" | grep -v grep
+}
+
+
+pd()
+{
+	pushd $1
+}
+
+
+mkapp()
+{
+	APP=$1
+	mkdir -p ~/Dropbox/apps/$APP
+}
+
+
+cpapp()
+{
+	APP=$1
+	TAR=$2
+
+	cp $TAR ~/Dropbox/apps/$APP
+}
+
+
+bkupbash()
+{
+
+	PWD="`pwd`"
+
+	HOST="`hostname`"
+	NOW="`date '+%Y%h%m_%H-%M%p'`"
+	DIR=~/bashrc
+
+	pushd $DIR
+
+	git add pathrc
+	git add bashrc
+	git add exrc	
+	git add vimrc
+
+	git commit -m "bashrc update $NOW"
+	git push
+
+	popd
+
+}
+
+
+vimpath()
+{
+	vi ~/.pathrc
+}
+
+mailer_ny()
+{
+	OLD_DIR=`pwd`
+	cd  ~/dev/mailer
+	osascript mail_ny.scpt
+	cd $OLD_DIR	
+}
+
+
+gclone()
+{
+
+	USER=jabdussa
+	PASS=nNext123
+	DIR=${1}
+	REPO=${1}.git
+
+	[ -d $DIR ] && mv $DIR $DIR-"`date +%Y%b%d_%H-%M_%p`"
+
+	if [ ! -z "$2" ] ; then
+		NEW_NAME="${2}"
+		git clone "https://$USER:$PASS@github.com/jabdussa/$REPO" $NEW_NAME
+	else
+		git clone "https://$USER:$PASS@github.com/jabdussa/$REPO"
+	fi
+}
+
+aclone()
+{
+	DIR=${1}
+	REPO=${1}.git
+
+	[ -d $DIR ] && mv $DIR $DIR-$(now)	
+
+	if [ ! -z "$2" ] ; then
+		NEW_NAME="${2}"
+		git clone git@git.assembla.com:j9-connectors.xlr8rs.git $NEW_NAME
+	else
+		git clone git@git.assembla.com:j9-connectors.xlr8rs.git
+	fi
+}
+
+
+bclone()
+{
+	DIR=${1}
+	REPO=${1}.git
+
+	[ -d $DIR ] && mv $DIR $DIR-$(now)	
+
+	if [ ! -z "$2" ] ; then
+		NEW_NAME="${2}"
+		git clone git@bitbucket.org:truqc/$REPO $NEW_NAME
+	else
+		git clone git@bitbucket.org:truqc/truqc.git
+	fi
+
+}
+
+
+
+ddir()
+{
+	DIR=$1
+	[ -d $DIR ] && rm -rf $DIR && echo && date && echo "Deleted .. $DIR"
+}
+
+assh()
+{
+	ssh ec2-user@$1
+}
+
+alias viaws="vi /opt/capricorntechs/aws_tool/cli-sh/aws.bashrc"
+
+alias vipath="vi ~/bashrc/pathrc"
+
+alias good-morning="sh ~/bashrc/good-morning.sh"
+alias good-night="sh ~/bashrc/good-night.sh"
+
+alias vimorning="vi ~/bashrc/good-morning.sh"
+alias vinight="vi ~/bashrc/good-night.sh"
+
+alias 2aws="pushd /opt/capricorntechs/aws_tool"
+
+alias 2proxy="pushd /opt/capricorntechs/proxy"
+
+alias ct="pushd /opt/capricorntechs"
+
+
+bkupcraig()
+{
+	OLD_DIR="`pwd`"
+	cd /opt/Development/craigslist
+	git add --all
+	git commit -m "`date` updates"
+	git push
+	cd $OLD_DIR
+
+}
+
+bkupaws()
+{
+	OLD_DIR="`pwd`"
+	cd /opt/Developmen/aws_tool
+	git add --all
+	git commit -m "`date` updates"
+	git push
+	cd $OLD_DIR
+
+}
+
+mp()
+{
+	mkdir -p $1
+}
+
+
+gcloud_ssh()
+{
+	IP=$1
+	ssh -i ~/.ssh/google_compute_engine -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no $IP -t
+}
+
+bkup(){
+
+	NOW="`date +%Y%b%d_%H-%M_%p`"
+	FILE=$1
+
+	echo 
+	echo "[`date`]" 
+	echo "Copied: $FILE "
+	echo "To:     $FILE.$NOW " 
+	echo 
+	cp $FILE $FILE.$NOW
+
+}
+
+function j.copy_to_remote(){
+     echo
+     echo "[`date`] Starting Copy"
+     echo
+     echo SRC  = $SRC
+     echo DST  = $DST
+     echo USER = $USER
+     echo HOST = $HOST
+     echo
+     echo scp $SRC $USER@$HOST:$DST
+     echo
+     scp $SRC $USER@$HOST:$DST
+     echo
+     echo "[`date`] Done Copy"
+     echo
+}
+
+alias vihttp="sudo vi /etc/apache2/httpd.conf"
+alias vihttp2="sudo vi /etc/apache2/other/vt5_combined_my_repo.conf"
+
+export PEAR_HOME
+export PATH=$PEAR_HOME/bin:$PATH
+
+	
+alias dev="pushd ~/Development"
+
+alias me="pushd ~/Development/anwar_abdus_samad"
+
+export BROSWER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %s"
+
+alias xi="pushd ~/Development/carnival/xiIntegrate"
+alias p="pushd ~/Development/apache_camel"
+
+function ivy() {
+	find ~/.ivy2 -iname "*$1*"
+}
+
+function jar-add() {
+
+	REPO=~/Development/anwar_abdus_samad	
+
+	BRAN=jars
+
+	JAR_FULL_PATH=$1
+
+	JAR="`basename $1`"
+
+	CUR_DIR="`pwd`"
+
+	cd $REPO
+
+	git checkout jars
+
+	cp -v $JAR_FULL_PATH $REPO
+
+	git add $JAR
+
+	git commit -m "adding new jar $JAR"
+
+	git push
+
+	cd $CUR_DIR
+	
+}
