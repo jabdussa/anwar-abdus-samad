@@ -39,6 +39,5 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/%{name}/%{name}.conf
 %{_bindir}/*
 
-%changelog
 
 EOF
