@@ -4,28 +4,13 @@ if [ -f /etc/bashrc ]; then
        . /etc/bashrc
 fi
 
-#TMP=~/bashrc/bashrc
-#[ -f $TMP ] && . $TMP
+if [ -f /opt/local/bashrc ]; then
+       . /opt/local/bashrc
+fi
 
-##TMP=~/bashrc/exrc
-#[ -f $TMP ] && . $TMP
-
-#TMP=~/bashrc/vimrc
-#[ -f $TMP ] && . $TMP
-
-TMP=/home/jabdussa/anwar_abdus_samad/bash/pathrc
-[ -f $TMP ] && . $TMP
-
-TMP=~/bashrc/pathrc
-[ -f $TMP ] && . $TMP
-
-#TMP=/opt/aws/conf/creds.txt
-#[ -f $TMP ] && . $TMP
-
-#TMP=/opt/capricorntechs/aws_tool/cli-sh/aws.bashrc
-#[ -f $TMP ] && . $TMP
-
-alias gcloud_bash="source /opt/capricorntechs/mailer/gcloud/gcloud.bashrc"
+if [ -f /opt/local/pathrc ]; then
+       . /opt/local/pathrc
+fi
 
 set -o vi
 
