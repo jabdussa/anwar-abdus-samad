@@ -4,6 +4,11 @@ if [ -f /etc/bashrc ]; then
        . /etc/bashrc
 fi
 
+if [ -f ~/.pathrc ]; then
+       . ~/.pathrc
+fi
+
+
 #TMP=~/bashrc/bashrc
 #[ -f $TMP ] && . $TMP
 
@@ -398,50 +403,8 @@ function j.copy_to_remote(){
      echo
 }
 
-alias vihttp="sudo vi /etc/apache2/httpd.conf"
-alias vihttp2="sudo vi /etc/apache2/other/vt5_combined_my_repo.conf"
-
-export PEAR_HOME
-export PATH=$PEAR_HOME/bin:$PATH
-
-	
-alias dev="pushd ~/Development"
-
-alias me="pushd ~/Development/anwar_abdus_samad"
-
-export BROSWER="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome %s"
-
-alias xi="pushd ~/Development/carnival/xiIntegrate"
-alias p="pushd ~/Development/apache_camel"
 
 function ivy() {
 	find ~/.ivy2 -iname "*$1*"
 }
 
-function jar-add() {
-
-	REPO=~/Development/anwar_abdus_samad	
-
-	BRAN=jars
-
-	JAR_FULL_PATH=$1
-
-	JAR="`basename $1`"
-
-	CUR_DIR="`pwd`"
-
-	cd $REPO
-
-	git checkout jars
-
-	cp -v $JAR_FULL_PATH $REPO
-
-	git add $JAR
-
-	git commit -m "adding new jar $JAR"
-
-	git push
-
-	cd $CUR_DIR
-	
-}
