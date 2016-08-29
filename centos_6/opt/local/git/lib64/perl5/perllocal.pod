@@ -1,0 +1,22 @@
+=head2 Thu Jul 21 05:12:38 2016: C<Module> L<Git|Git>
+
+=over 4
+
+=item *
+
+C<installed into: /opt/local/git/share/perl5>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 0.01>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
